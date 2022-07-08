@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class array {
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+        while (true) {
+            displayMENU();
+            int choice = console.nextInt();
+
+            if (choice == 1) {
+                System.out.println("enter size of list");
+                int size = console.nextInt();
+                for (int i = 0; i < size; i++) {
+                    System.out.println("enter numbers");
+                    int n = console.nextInt();
+
+                    if (!numbers.contains(n)) {
+                        numbers.add(n);
+                        System.out.println("Added");
+                    }
+                }
+
+            }
+            if (choice == 2) {
+                System.out.println("enter a number to be removed");
+                int remove = console.nextInt();
+                if (numbers.contains(remove)) {
+                    numbers.remove(Integer.valueOf(remove));
+                    System.out.println("Removed");
+                }
+                else
+                    System.out.println("number doesnt exist");
+            }
+            if (choice == 3) {
+                Collections.sort(numbers);
+                System.out.println(numbers);
+            }
+            if (choice == 4) {
+                System.out.println("goodbye mate");
+            break;
+
+            }
+        }
+    }
+
+    private static void displayMENU() {
+        System.out.println("1.Add number");
+        System.out.println("2.Remove number");
+        System.out.println("3.Display number");
+        System.out.println("4. Exit");
+    }
+}
